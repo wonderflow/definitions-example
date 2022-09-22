@@ -1,11 +1,8 @@
 # Every day at noon
 name: Weekly Community Call (EN)
 on:
-  push:
-    branches: [main]
   schedule:
-    # Every day at noon
-    - cron: 0 12 * * *
+    - cron: 0 12 */14 * 2
 
 jobs:
   en-community-cal:
@@ -16,9 +13,9 @@ jobs:
         run: |-
           echo "MEETINGDAY=$(date -d "+14 days" +"%b %d, %Y")" >> $GITHUB_ENV
           echo "MEETINGDAYNUM=$(date -d "+14 days" +"%Y%m%d")" >> $GITHUB_ENV
+          echo "$(date)"
 
-      # Generates and pins new standup issue, closes previous, writes linking comments, and assigns to all assignees in list
-      - name: New standup issue
+      - name: New Community call issue
         uses: imjohnbo/issue-bot@v3
         with:
           labels: "comminity call"

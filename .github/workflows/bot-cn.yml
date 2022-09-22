@@ -1,11 +1,8 @@
 # Every day at noon
 name: Weekly Community Call (CN)
 on:
-  push:
-    branches: [main]
   schedule:
-    # Every day at noon
-    - cron: 0 12 * * *
+    - cron: 0 12 */14 * 2
 
 jobs:
   cn-community-cal:
