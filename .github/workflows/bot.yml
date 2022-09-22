@@ -8,8 +8,8 @@ on:
     - cron: 0 12 * * *
 
 jobs:
-  daily_standup:
-    name: Daily Standup
+  en-community-cal:
+    name: Community Call Raise
     runs-on: ubuntu-latest
     steps:
       - name: Meeting date
@@ -21,8 +21,7 @@ jobs:
       - name: New standup issue
         uses: imjohnbo/issue-bot@v3
         with:
-          assignees: "octocat, monalisa"
-          labels: "standup"
+          labels: "comminity call"
           title: ${{ env.MEETINGDAY }} Community Meeting Agenda
           body: |-
             KubeVela Community Meetings
